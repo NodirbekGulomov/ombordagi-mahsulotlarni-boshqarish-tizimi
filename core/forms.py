@@ -27,7 +27,7 @@ class MahsulotForm(forms.ModelForm):
                     f"Mahsulot nomida '{soz}' sozi qatnashmasligi kerak!"
                 )
 
-        if Mahsulot.objects.filter(nomi__iexact=nomi):
+        if Mahsulot.objects.filter(nomi__iexact=nomi).exists():
             raise forms.ValidationError(
                 f"'{nomi}' nomli mahsuloti mavjud boshqa nom kiriting!"
             )
